@@ -1,4 +1,4 @@
-#include "services/HttpService.h"
+#include "modules/request/HttpService.h"
 
 #include <QNetworkReply>
 #include <QNetworkRequest>

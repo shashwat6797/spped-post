@@ -1,7 +1,6 @@
-# Postman App — Qt6 Starter Template
+# SpeedPost
 
-A minimal, production-ready Qt6 Widgets desktop application in C++ using CMake.  
-Designed as a starter template for a Postman-like API client.
+SpeedPost is a desktop native C++ API client built for a speedy experience.
 
 ## Prerequisites
 
@@ -29,10 +28,16 @@ make -j$(nproc)
 ├── CMakeLists.txt          # Build configuration
 ├── README.md
 ├── include/
-│   └── MainWindow.h        # MainWindow class header
+│   ├── core/               # Global providers
+│   ├── common/             # Shared helpers
+│   ├── modules/            # Feature-specific headers
+│   └── ui/                 # UI section headers
 └── src/
-    ├── main.cpp             # Application entry point
-    └── MainWindow.cpp       # MainWindow implementation
+    ├── core/               # Provider implementations
+    ├── common/             # Helper implementations
+    ├── modules/            # Feature implementations
+    ├── ui/                 # Window and UI section implementations
+    └── main.cpp            # Application entry point
 ```
 
 ## Packaging (AppImage)
@@ -56,4 +61,4 @@ This bundles all Qt libraries and produces a portable `.AppImage` file.
 
 ## License
 
-MIT — use freely as a starting point for your own projects.
+MIT

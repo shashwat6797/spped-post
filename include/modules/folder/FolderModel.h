@@ -1,5 +1,5 @@
-#ifndef FOLDER_H
-#define FOLDER_H
+#ifndef FOLDERMODEL_H
+#define FOLDERMODEL_H
 
 #include <QString>
 
@@ -8,4 +8,4 @@ struct Folder {
     QString name;
 };
 
-#endif // FOLDER_H
+#endif // FOLDERMODEL_H

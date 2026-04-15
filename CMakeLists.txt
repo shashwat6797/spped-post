@@ -20,19 +20,35 @@ qt_standard_project_setup()
 # --- Sources ---
 set(SOURCES
     src/main.cpp
-    src/MainWindow.cpp
-    src/services/HttpService.cpp
-    src/services/RequestRepository.cpp
+    src/common/StringUtils.cpp
+    src/core/DatabaseManager.cpp
+    src/modules/folder/FolderRepository.cpp
+    src/modules/folder/FolderService.cpp
+    src/modules/request/HttpService.cpp
+    src/modules/request/RequestRepository.cpp
+    src/modules/request/RequestService.cpp
+    src/ui/MainWindowController.cpp
+    src/ui/MainWindow.cpp
+    src/ui/RequestWorkspaceWidget.cpp
+    src/ui/SidebarWidget.cpp
     resources/resources.qrc
 )
 
 set(HEADERS
-    include/MainWindow.h
-    include/models/Folder.h
-    include/models/Request.h
-    include/models/SavedRequest.h
-    include/services/HttpService.h
-    include/services/RequestRepository.h
+    include/common/StringUtils.h
+    include/core/DatabaseManager.h
+    include/modules/folder/FolderModel.h
+    include/modules/folder/FolderRepository.h
+    include/modules/folder/FolderService.h
+    include/modules/request/HttpService.h
+    include/modules/request/RequestModel.h
+    include/modules/request/RequestRepository.h
+    include/modules/request/RequestService.h
+    include/modules/request/SavedRequestModel.h
+    include/ui/MainWindowController.h
+    include/ui/MainWindow.h
+    include/ui/RequestWorkspaceWidget.h
+    include/ui/SidebarWidget.h
 )
 
 # --- Target ---

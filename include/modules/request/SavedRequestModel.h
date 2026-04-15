@@ -1,5 +1,5 @@
-#ifndef SAVEDREQUEST_H
-#define SAVEDREQUEST_H
+#ifndef SAVEDREQUESTMODEL_H
+#define SAVEDREQUESTMODEL_H
 
 #include <QString>
 
@@ -11,4 +11,4 @@ struct SavedRequest {
     QString url;
 };
 
-#endif // SAVEDREQUEST_H
+#endif // SAVEDREQUESTMODEL_H

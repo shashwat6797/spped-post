@@ -1,5 +1,5 @@
-#ifndef REQUEST_H
-#define REQUEST_H
+#ifndef REQUESTMODEL_H
+#define REQUESTMODEL_H
 
 #include <QString>
 #include <QUrl>
@@ -9,4 +9,4 @@ struct Request {
     QUrl url;
 };
 
-#endif // REQUEST_H
+#endif // REQUESTMODEL_H

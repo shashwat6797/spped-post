@@ -1,7 +1,7 @@
 #ifndef HTTPSERVICE_H
 #define HTTPSERVICE_H
 
-#include "models/Request.h"
+#include "modules/request/RequestModel.h"
 
 #include <QNetworkAccessManager>
 #include <QObject>
