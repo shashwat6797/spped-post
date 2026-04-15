@@ -9,6 +9,7 @@
 #include "ui/RequestWorkspaceWidget.h"
 #include "ui/SidebarWidget.h"
 
+#include <QIcon>
 #include <QSplitter>
 #include <QStatusBar>
 
@@ -24,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::configureWindow()
 {
     setWindowTitle(QStringLiteral("SpeedPost"));
+    setWindowIcon(QIcon(QStringLiteral(":/icons/speedpost.svg")));
     setMinimumSize(1100, 700);
     resize(1280, 800);
 }
@@ -53,7 +55,7 @@ void MainWindow::assembleUi()
     setCentralWidget(splitter);
 }
 
-void MainWindow::startcontroller()
+void MainWindow::startController()
 {
     m_controller = new MainWindowController(
         m_sidebar,

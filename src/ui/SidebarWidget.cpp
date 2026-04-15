@@ -4,8 +4,10 @@
 
 #include <QHash>
 #include <QHBoxLayout>
+#include <QIcon>
 #include <QLabel>
 #include <QPushButton>
+#include <QSize>
 #include <QSignalBlocker>
 #include <QTreeWidget>
 #include <QVBoxLayout>
@@ -23,6 +25,7 @@ void SidebarWidget::setItems(const QVector<Folder> &folders, const QVector<Saved
     m_savedRequestsTree->clear();
 
     auto *rootItem = new QTreeWidgetItem(m_savedRequestsTree, {QStringLiteral("Root")});
+    rootItem->setIcon(0, QIcon(QStringLiteral(":/icons/folder.svg")));
     rootItem->setData(0, Qt::UserRole, FolderItem);
     rootItem->setData(0, Qt::UserRole + 1, -1);
     rootItem->setExpanded(true);
@@ -30,6 +33,7 @@ void SidebarWidget::setItems(const QVector<Folder> &folders, const QVector<Saved
     QHash<int, QTreeWidgetItem *> folderItems;
     for (const Folder &folder : folders) {
         auto *folderItem = new QTreeWidgetItem(m_savedRequestsTree, {folder.name});
+        folderItem->setIcon(0, QIcon(QStringLiteral(":/icons/folder.svg")));
         folderItem->setData(0, Qt::UserRole, FolderItem);
         folderItem->setData(0, Qt::UserRole + 1, folder.id);
         folderItem->setExpanded(true);
@@ -38,6 +42,7 @@ void SidebarWidget::setItems(const QVector<Folder> &folders, const QVector<Saved
 
     for (const SavedRequest &request : requests) {
         auto *item = new QTreeWidgetItem({StringUtils::requestDisplayText(request)});
+        item->setIcon(0, QIcon(QStringLiteral(":/icons/request.svg")));
         item->setData(0, Qt::UserRole, RequestItem);
         item->setData(0, Qt::UserRole + 1, request.id);
         item->setData(0, Qt::UserRole + 2, request.folderId);
@@ -127,6 +132,8 @@ void SidebarWidget::buildLayout()
     title->setProperty("role", "title");
 
     m_addRequestButton = new QPushButton(QStringLiteral("Add Request"), this);
+    m_addRequestButton->setIcon(QIcon(QStringLiteral(":/icons/add.svg")));
+    m_addRequestButton->setIconSize(QSize(16, 16));
     m_addRequestButton->setProperty("variant", "primary");
     m_addRequestButton->setFixedHeight(32);
 
@@ -144,14 +151,22 @@ void SidebarWidget::buildLayout()
     folderActions->setSpacing(8);
 
     m_createFolderButton = new QPushButton(QStringLiteral("Folder"), this);
+    m_createFolderButton->setIcon(QIcon(QStringLiteral(":/icons/folder.svg")));
+    m_createFolderButton->setIconSize(QSize(16, 16));
     m_renameFolderButton = new QPushButton(QStringLiteral("Rename"), this);
+    m_renameFolderButton->setIcon(QIcon(QStringLiteral(":/icons/edit.svg")));
+    m_renameFolderButton->setIconSize(QSize(16, 16));
     m_deleteFolderButton = new QPushButton(QStringLiteral("Delete Folder"), this);
+    m_deleteFolderButton->setIcon(QIcon(QStringLiteral(":/icons/trash.svg")));
+    m_deleteFolderButton->setIconSize(QSize(16, 16));
     m_deleteFolderButton->setProperty("variant", "danger");
 
     folderActions->addWidget(m_createFolderButton);
     folderActions->addWidget(m_renameFolderButton);
 
     m_deleteRequestButton = new QPushButton(QStringLiteral("Delete Request"), this);
+    m_deleteRequestButton->setIcon(QIcon(QStringLiteral(":/icons/trash.svg")));
+    m_deleteRequestButton->setIconSize(QSize(16, 16));
     m_deleteRequestButton->setProperty("variant", "danger");
 
     layout->addLayout(headerLayout);

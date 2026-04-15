@@ -1,5 +1,19 @@
 <RCC>
     <qresource prefix="/">
+        <file>icons/add.svg</file>
+        <file>icons/body.svg</file>
+        <file>icons/edit.svg</file>
+        <file>icons/folder.svg</file>
+        <file>icons/headers.svg</file>
+        <file>icons/more.svg</file>
+        <file>icons/params.svg</file>
+        <file>icons/request.svg</file>
+        <file>icons/response.svg</file>
+        <file>icons/save.svg</file>
+        <file>icons/send.svg</file>
+        <file>icons/speedpost.svg</file>
+        <file>icons/trash.svg</file>
+        <file>icons/url.svg</file>
         <file>styles/postman.qss</file>
     </qresource>
 </RCC>

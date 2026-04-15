@@ -4,10 +4,12 @@
 #include <QFrame>
 #include <QHeaderView>
 #include <QHBoxLayout>
+#include <QIcon>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QSize>
 #include <QTableWidget>
 #include <QTabWidget>
 #include <QUrl>
@@ -134,7 +136,11 @@ void RequestWorkspaceWidget::buildLayout()
     m_requestNameLineEdit->setText(QStringLiteral("Untitled Request"));
 
     m_saveRequestButton = new QPushButton(QStringLiteral("Save Request"), topBar);
+    m_saveRequestButton->setIcon(QIcon(QStringLiteral(":/icons/save.svg")));
+    m_saveRequestButton->setIconSize(QSize(16, 16));
     auto *moreButton = new QPushButton(QStringLiteral("..."), topBar);
+    moreButton->setIcon(QIcon(QStringLiteral(":/icons/more.svg")));
+    moreButton->setIconSize(QSize(16, 16));
     moreButton->setProperty("variant", "ghost");
     moreButton->setFixedWidth(42);
 
@@ -165,6 +171,8 @@ void RequestWorkspaceWidget::buildLayout()
     m_urlLineEdit->setText(QStringLiteral("https://httpbin.org/get"));
 
     m_sendButton = new QPushButton(QStringLiteral("Send"), requestPanel);
+    m_sendButton->setIcon(QIcon(QStringLiteral(":/icons/send.svg")));
+    m_sendButton->setIconSize(QSize(16, 16));
     m_sendButton->setProperty("variant", "primary");
     m_sendButton->setFixedWidth(96);
 
@@ -177,9 +185,9 @@ void RequestWorkspaceWidget::buildLayout()
     auto *bodyEditor = new QPlainTextEdit(tabs);
     bodyEditor->setPlaceholderText(QStringLiteral("{\n  \"name\": \"Ada Lovelace\"\n}"));
 
-    tabs->addTab(createKeyValueTable(tabs), QStringLiteral("Params"));
-    tabs->addTab(createKeyValueTable(tabs), QStringLiteral("Headers"));
-    tabs->addTab(bodyEditor, QStringLiteral("Body"));
+    tabs->addTab(createKeyValueTable(tabs), QIcon(QStringLiteral(":/icons/params.svg")), QStringLiteral("Params"));
+    tabs->addTab(createKeyValueTable(tabs), QIcon(QStringLiteral(":/icons/headers.svg")), QStringLiteral("Headers"));
+    tabs->addTab(bodyEditor, QIcon(QStringLiteral(":/icons/body.svg")), QStringLiteral("Body"));
 
     requestLayout->addLayout(requestLine);
     requestLayout->addWidget(tabs, 1);
@@ -194,12 +202,16 @@ void RequestWorkspaceWidget::buildLayout()
     auto *responseHeader = new QHBoxLayout();
     responseHeader->setSpacing(10);
 
+    auto *responseIcon = new QLabel(responsePanel);
+    responseIcon->setPixmap(QIcon(QStringLiteral(":/icons/response.svg")).pixmap(18, 18));
+
     auto *responseTitle = new QLabel(QStringLiteral("Response"), responsePanel);
     responseTitle->setProperty("role", "title");
 
     m_responseStatusLabel = new QLabel(QStringLiteral("No response yet"), responsePanel);
     m_responseStatusLabel->setProperty("role", "accent");
 
+    responseHeader->addWidget(responseIcon);
     responseHeader->addWidget(responseTitle, 1);
     responseHeader->addWidget(m_responseStatusLabel);
 

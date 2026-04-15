@@ -53,7 +53,6 @@ set(HEADERS
 
 # --- Target ---
 qt_add_executable(postman-app ${SOURCES} ${HEADERS})
-
 target_include_directories(postman-app PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
